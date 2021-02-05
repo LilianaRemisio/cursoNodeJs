@@ -1,3 +1,13 @@
 <%- include("templates/head", {TituloWeb: "Inicio"}) %>
-   <center><h1><%= titulo %></h1></center>
-   <%- include("templates/footer") %>
+<div class="container-fluid">
+   <center>
+      <h1><%= titulo %></h1>
+   </center>
+   <form action="#" class="form-group">
+      <label for="file">Archivo</label>
+      <input type="file" class="form-control-file" id="">
+   </form>
+</div>
+
+<%- include("templates/footer") %>
+   
