@@ -11,7 +11,7 @@ app.get("/",(req, res) =>{
     res.render("index",{titulo: "Hola desde la magia de EJS"})
 })
 app.get("/servicios",(req, res) =>{
-    res.render("index",{titulo: "Hola desde la magia de EJS en la pagina Servicios"})
+    res.render("servicios",{titulo: "Hola desde la magia de EJS en la pagina Servicios"})
 })
 app.use((req, res, next) => {
     // cuando es una ruta desconocida 
