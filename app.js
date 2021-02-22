@@ -1,18 +1,29 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 30000;
+const port = process.env.PORT || 3000;
+
+const user = "heidy";
+const password = "1234567Hl";
+const nameDB = "Fruteros";
+
+const uri = `mongodb+srv://${user}:${password}@cluster0.eqffc.mongodb.net/${nameDB}?retryWrites=true&w=majority`
+
+//conexion ala BD
+const mongoose = require('mongoose');
+mongoose.connect(uri, 
+    {useNewUrlParser: true, useUnifiedTopology: true}
+  ).then(() => console.log("Conectado Correctamente"))
+  .catch(e => console.log(e));
+
 
 app.set("view engine", 'ejs') //declaramos el motor de plantillas
 app.set('views', __dirname+'/views') //le decimos donde se encuentra la carpeta
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/",(req, res) =>{
-    res.render("index",{titulo: "Hola desde la magia de EJS"})
-})
-app.get("/servicios",(req, res) =>{
-    res.render("servicios",{titulo: "Hola desde la magia de EJS en la pagina Servicios"})
-})
+app.use('/', require('./router/Web'));
+app.use('/frutas', require('./router/frutas'));
+
 app.use((req, res, next) => {
     // cuando es una ruta desconocida 
     res.status(404).render("404",{titulo: "404"});

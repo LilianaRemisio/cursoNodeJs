@@ -1,0 +1,25 @@
+<%- include("templates/head", {TituloWeb: "Frutas"}) %>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Color</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if (Frutas.length != 0) { %>
+                    <% Frutas.forEach(fr => { %>
+                     <tr>
+                        <td><%= fr.id %> </td>
+                        <td><%= fr.nombre %> </td>
+                        <td><%= fr.color %> </td>
+                      </tr>                  
+                    <% }) %>
+                <% } %>
+            </tbody>
+    </div>
+
+<%- include("templates/footer") %>
