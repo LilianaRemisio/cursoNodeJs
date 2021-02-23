@@ -1,12 +1,10 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const dotenv = require('dotenv').config();
 
-const user = "heidy";
-const password = "1234567Hl";
-const nameDB = "Fruteros";
 
-const uri = `mongodb+srv://${user}:${password}@cluster0.eqffc.mongodb.net/${nameDB}?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.eqffc.mongodb.net/${process.env.NAMEDB}?retryWrites=true&w=majority`
 
 //conexion ala BD
 const mongoose = require('mongoose');
