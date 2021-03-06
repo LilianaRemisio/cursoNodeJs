@@ -1,8 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 const app = express();
 const port = process.env.PORT || 3000;
-require('dotenv').config();
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+require('dotenv').config();
 
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.eqffc.mongodb.net/${process.env.NAMEDB}?retryWrites=true&w=majority`
 

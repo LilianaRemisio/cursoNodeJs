@@ -1,0 +1,23 @@
+<%- include("templates/head", {TituloWeb: "Editar Frutas"}) %> <!--llamamos una plantilla y le enviamos una variable-->
+
+<div class="container">
+    <h1 class="col-10"><center><%= titulo%></center></h1>
+    <% if (error) { %> 
+        <p><%- mensaje %> </p>
+        <a href="/frutas" class="btn btn-dark btn-block">Volver a Frutas</a>   
+    <% } %>
+    <% if (!error) { %>
+        <form action="/frutas/editar" class="form-group" method="POST">
+                    <label for="nombre" class="col-10">
+                        <input type="text" name="nombre" id="" value="<%= fruta.nombre %>" placeholder="Nombre" class="form-control">
+                    </label>
+                    <label for="color" class="col-10">
+                        <input type="text" name="color" id="" value="<%= fruta.color %>" placeholder="Color" class="form-control">
+                    </label>
+           <label for="Editar" class="col-10">
+                <input type="submit" class="btn btn-success btn-block" value="Editar">
+           </label>
+        </form>    
+        <% } %>
+    </div>
+<%- include("templates/footer") %>

@@ -1,12 +1,17 @@
 <%- include("templates/head", {TituloWeb: "Frutas"}) %>
 
     <div class="container">
+      <center><h1><%- titulo %> </h1></center>      
+      <form action="../frutas/crear" class="form-group" style="margin: 5px;">
+        <input type="submit" class="btn btn-warning btn-block" value="Crear Frutas">
+      </form>
         <table class="table">
             <thead>
               <tr>
                 <th scope="col">id</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Color</th>
+                <th scope="col" colspan="2"><center>Accion</center></th>
               </tr>
             </thead>
             <tbody>
@@ -16,6 +21,8 @@
                         <td><%= fr.id %> </td>
                         <td><%= fr.nombre %> </td>
                         <td><%= fr.color %> </td>
+                        <td><center><a href="/frutas/<%= fr.id %>"><i class="fas fa-edit"></i></a></center></td>
+                        <td><center><a href="/frutas/delete/<%= fr.id %>"><i class="fas fa-trash"></i></i></a></center></i></td>
                       </tr>                  
                     <% }) %>
                 <% } %>
