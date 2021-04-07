@@ -21,8 +21,7 @@
                         <td><%= fr.id %> </td>
                         <td><%= fr.nombre %> </td>
                         <td><%= fr.color %> </td>
-                        <td><center><a href="/frutas/<%= fr.id %>"><i class="fas fa-edit"></i></a></center></td>
-                        <td><center><a href="/frutas/delete/<%= fr.id %>"><i class="fas fa-trash"></i></i></a></center></i></td>
+                        <td><center><button class="btn"><a href="/frutas/<%= fr.id %>" style="color: black !important"><i class="fas fa-edit"></i></a></button></center></td>
                       </tr>                  
                     <% }) %>
                 <% } %>
@@ -30,3 +29,4 @@
     </div>
 
 <%- include("templates/footer") %>
+

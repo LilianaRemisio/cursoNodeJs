@@ -1,4 +1,5 @@
 const express = require('express');
+const { findByIdAndDelete } = require('../models/frutas');
 const router = express.Router();
 
 const frutas = require("../models/frutas"); //traemos el modelo mascotas
@@ -51,4 +52,29 @@ router.get('/:id', async(req, res) =>{
         })
     }
 })
+
+router.delete("/:id", async (req, res) =>{
+    const id = req.params.id
+    try {
+        const frutasDB = await frutas.findByIdAndDelete({_id: id});
+
+        if(frutasDB){
+            console.log("eliminado bien bien")
+            res.json({
+                estado: true,
+                mensaje: "Eliminado"
+            })
+        }else{
+            console.log("eliminado bien bien")
+            res.json({
+                estado: false,
+                mensaje: "Error"
+            })
+        }
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 module.exports = router;
