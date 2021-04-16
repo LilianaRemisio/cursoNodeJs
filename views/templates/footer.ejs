@@ -1,36 +1,5 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script>
-    const btnDelete = document.querySelector("#btnEliminar");
-
-    btnDelete.addEventListener('click', async() =>{
-        const id = btnDelete.dataset.id;
-        try {
-            const data = await fetch(`/frutas/${id}`, {
-                method: "delete"})
-            const resp = await data.json();
-            
-            console.log(resp)
-            if(resp.estado = true){
-                alert("Eliminado Correctamente!!")
-                window.location.href = "/frutas"
-            }
-            else{
-                alert("No Eliminado")
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    })
-
-</script>
+<script src="/js/funciones.js"></script>
 </body>
-
-
-
-t: { "value": 1, 
-    "left": 
-        { "value": 2, "left": null, "right": null }, 
-    "right": 
-        { "value": 3, "left": null, "right": null } } 

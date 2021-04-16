@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
     }
 })
 
+//Ruta pagina crear frutas
 router.get("/crear",(req, res) =>{
     res.render("crear",{titulo: "Crear Frutas"})
 })
@@ -33,6 +34,20 @@ router.post('/', async (req, res)=>{
     }
 })
 
+//Editar frutas
+router.post('/editar/:id', async (req, res)=>{
+    const id = req.params.id
+    const body = req.body
+    try {
+        const frutasDB = await frutas.findByIdAndUpdate(id, body, {useFindAndModify: false})
+        console.log(frutasDB)
+        res.redirect("/frutas")    
+    } catch (error) {
+       console.log(error)    
+    }
+})
+
+//Detalle de la fruta
 
 router.get('/:id', async(req, res) =>{
     const id = req.params.id
@@ -53,6 +68,7 @@ router.get('/:id', async(req, res) =>{
     }
 })
 
+//eliminar frutas
 router.delete("/:id", async (req, res) =>{
     const id = req.params.id
     try {

@@ -7,7 +7,7 @@
         <a href="/frutas" class="btn btn-dark btn-block">Volver a Frutas</a>   
     <% } %>
     <% if (!error) { %>
-        <form action="/frutas/editar" class="form-group" method="POST">
+        <form action="/frutas/editar/<%= fruta.id %>" class="form-group" method="POST">
                     <label for="nombre" class="col-12">
                         <input type="text" name="nombre" id="" value="<%= fruta.nombre %>" placeholder="Nombre" class="form-control">
                     </label>
